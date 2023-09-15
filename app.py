@@ -4,25 +4,19 @@ import requests
 
 app = Flask(__name__)
 
-# Default is to cache the response
-def get_response(url, cache=True):
 # Cache for the apod
-    if cache:
-        session = CachedSession(
-            cache_name='apod_cache',
-            # Cache expires after 1 hour
-            expire_after=60 * 60,
-        )
-    else:
-        session = requests.Session()
+session = CachedSession(
+    cache_name='apod_cache',
+    # Cache expires after 1 hour
+    expire_after=60 * 60,
+)
 
+def get_response(url):
 
     try:
         response = session.get(url)
         # Raise an exception if http error code
         response.raise_for_status()
-        print(response)
-
         # Turns the response into json
         json_data = response.json()
         return json_data
@@ -35,15 +29,11 @@ def get_response(url, cache=True):
 
 @app.route("/")
 def index():
-    iss_data = None
 
-    # Call request with cache (default)
+    # Call request with cache
     apod_data = get_response('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
         
-    # Call iss without cache
-    iss_data = get_response('http://api.open-notify.org/iss-now.json', False)
-
-    return render_template("index.html", apod_data=apod_data, iss_data=iss_data)
+    return render_template("index.html", apod_data=apod_data)
         
 
 
