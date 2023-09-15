@@ -1,22 +1,21 @@
 {% extends "layout.html" %} {% block title %} Home {% endblock %} {% block main
 %}
 
-<picture>
-  <source srcset="{{ apod_data.url }}" media="(min-width: 800px)" />
-  <img src="{{ apod_data.url }}" alt="" />
-</picture>
+<div>
+  <img src="{{ apod_data.url }}" alt="{{ apod_data.title }}" />
+  <div style="position: absolute; top: 5%; left: 20%">
+    <h1 class="text-decoration-none">Astronomy Picture of the Day</h1>
+    <p class="text text-decoration-none">{{ apod_data.title }}</p>
+  </div>
+</div>
 
+<div class="section">
+  <div class="container">
+    <h1>Live ISS Map</h1>
+  </div>
+</div>
+
+{% block title %} Map {% endblock %}
 <div id="map"></div>
 
-<!-- Script for the map -->
-<script>
-  var iss = {{ iss_data.iss_position | tojson }};
-
-  var map = L.map('map').setView([iss.latitude, iss.longitude], 4);
-
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-  }).addTo(map);
-</script>
 {% endblock %}
