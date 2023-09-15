@@ -1,7 +1,6 @@
-{% extends "layout.html" %} {% block title %} Home {% endblock %} {% block main
-%}
+{% extends "layout.html" %}{% block main %}
 
-<div>
+<div id="picture">
   <img src="{{ apod_data.url }}" alt="{{ apod_data.title }}" />
   <div style="position: absolute; top: 5%; left: 20%">
     <h1 class="text-decoration-none">Astronomy Picture of the Day</h1>
@@ -15,7 +14,6 @@
   </div>
 </div>
 
-{% block title %} Map {% endblock %}
 <div id="map"></div>
 
 {% endblock %}
