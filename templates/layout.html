@@ -4,6 +4,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <!-- Favicon -->
+    <link rel="icon" href="/static/iss-favicon.ico" />
 
     <!-- http://getbootstrap.com/docs/5.1/ -->
     <link
@@ -35,33 +37,77 @@
   </head>
 
   <body>
-    <div class="main-container d-flex">
-      <div class="sidebar" id="side_nav">
-        <a
-          href="/"
-          class="d-flex align-items-center justify-content-center m-3 text-white text-decoration-none"
-        >
-          <span class="fs-4">Iss Tracker</span>
-        </a>
-        <hr class="h-color mx-2" />
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Fixed sidebar -->
+        <nav id="sidebar" class="col-md-3 col-lg-2 bg-dark sidebar">
+          <!-- Sidebar -->
+          <div class="position-fixed" style="width: 180px">
+            <a
+              href="/"
+              class="d-flex align-items-center justify-content-center m-3 text-white text-decoration-none"
+            >
+              <svg
+                class="bi pe-none me-2"
+                width="50"
+                height="52"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <image
+                  xlink:href="/static/iss-logo.png"
+                  width="40"
+                  height="52"
+                  alt="ISS Logo"
+                />
+              </svg>
 
-        <ul class="list-unstyled px-2">
-          <li class="active">
-            <a class="text-decoration-none px-3 py-2 d-block" href="#"
-              ><i class="bi bi-house"></i> Home</a
+              <span class="fs-4">Iss Tracker</span>
+            </a>
+            <hr class="h-color mx-2" />
+
+            <ul class="list-unstyled px-2">
+              <li class="active">
+                <a
+                  class="icon-link icon-link-hover text-decoration-none px-3 py-2"
+                  href="#"
+                  ><i class="icon-link icon-link-hover bi bi-house"></i> Home</a
+                >
+              </li>
+              <li class="">
+                <a
+                  class="icon-link icon-link-hover text-decoration-none px-3 py-2"
+                  href="#"
+                  ><i
+                    class="icon-link icon-link-hover bi bi-globe-americas"
+                  ></i>
+                  Map</a
+                >
+              </li>
+            </ul>
+            <hr class="h-color mx-2" />
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-0">
+          <div class="main-container">
+            <div class="content">{% block main %} {% endblock %}</div>
+          </div>
+        </main>
+        <script src="/static/script.js"></script>
+        <div id="footer">
+          <p>
+            <a
+              class="icon-link icon-link-hover link-light text-decoration-none"
+              style="--bs-icon-link-transform: translate3d(0, -0.125rem, 0)"
+              aria-label="spector700 github"
+              target="_blank"
+              href="https://github.com/spector700/iss-tracker/tree/main"
             >
-          </li>
-          <li class="">
-            <a class="text-decoration-none px-3 py-2 d-block" href="#"
-              ><i class="bi bi-globe-americas"></i> Map</a
-            >
-          </li>
-        </ul>
-        <hr class="h-color mx-2" />
+              <i class="icon-link icon-link-hover bi bi-github"></i>> github
+            </a>
+          </p>
+        </div>
       </div>
-
-      <div class="content">{% block main %} {% endblock %}</div>
-      <script src="/static/script.js"></script>
     </div>
   </body>
 </html>
