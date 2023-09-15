@@ -1,0 +1,22 @@
+{% extends "layout.html" %} {% block title %} Home {% endblock %} {% block main
+%}
+
+<picture>
+  <source srcset="{{ apod_data.url }}" media="(min-width: 800px)" />
+  <img src="{{ apod_data.url }}" alt="" />
+</picture>
+
+<div id="map"></div>
+
+<!-- Script for the map -->
+<script>
+  var iss = {{ iss_data.iss_position | tojson }};
+
+  var map = L.map('map').setView([iss.latitude, iss.longitude], 4);
+
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
+</script>
+{% endblock %}
