@@ -14,7 +14,9 @@ var ISSIcon = L.icon({
 });
 
 // Define the map outside the moveISS function and initialize it once
-var map = L.map("map").setView([0, 0], 4);
+var map = L.map("map",{
+  scrollWheelZoom: false
+}).setView([0, 0], 4);
 var iss = L.marker([0, 0], {icon: ISSIcon}).addTo(map);
 
 // Initialize the tiles of the map
