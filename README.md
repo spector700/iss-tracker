@@ -5,14 +5,6 @@ Welcome to the ISS Tracker project! This application allows you to track the Int
 [![ISS Tracker Demo](https://img.youtube.com/vi/JAgNTmCid-I/0.jpg)](https://www.youtube.com/watch?v=JAgNTmCid-I)
 
 
-## Table of Contents
-
-- [About the Project](#about-the-project)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Getting Started](#getting-started)
-
-
 ## About the Project
 
 The ISS Tracker is a web-based application that combines two exciting features:
@@ -38,9 +30,9 @@ The ISS Tracker is a web-based application that combines two exciting features:
 
 Follow these steps to get the ISS Tracker up and running on your local machine:
 
-1. Clone this repository: `git clone https://github.com/your-username/ISS-Tracker.git`
-2. Navigate to the project directory: `cd ISS-Tracker`
-3. If using nix then run ```nix develop``` and that will install all dapendencies.
+1. Clone this repository: `git clone https://github.com/spector700/iss-tracker.git`
+2. Navigate to the project directory: `cd iss-tracker`
+3. If using nix then run ```nix develop``` and that will install all dependencies.
 
 
 #### without nix
