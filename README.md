@@ -2,21 +2,24 @@
 
 Welcome to the ISS Tracker project! This application allows you to track the International Space Station (ISS) in real-time on a map while also displaying the Astronomy Picture of the Day.
 
+[![ISS Tracker Demo](https://img.youtube.com/vi/JAgNTmCid-I/0.jpg)](https://www.youtube.com/watch?v=JAgNTmCid-I)
+
+
 ## Table of Contents
 
 - [About the Project](#about-the-project)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
-- [Usage](#usage)
+
 
 ## About the Project
 
 The ISS Tracker is a web-based application that combines two exciting features:
 
-1. **Astronomy Picture of the Day**: Utilizing NASA's Astronomy Picture of the Day API, our project displays a stunning and educational astronomy picture. To reduce API calls and improve performance, the picture is cached and updated hourly.
+1. **Astronomy Picture of the Day**: Utilizing NASA's [Astronomy Picture of the Day API](https://api.nasa.gov/), to display a different astronomy picture each day. To reduce API calls and improve performance, the picture is cached and updated hourly.
 
-2. **Real-Time ISS Tracking**: We use the Open Notify API to fetch real-time data about the ISS's location and display it on a Leaflet map (which is using OpenStreetMaps). The ISS's position is updated every 3 seconds, providing an accurate representation of its movement.
+2. **Real-Time ISS Tracking**: using the [Open Notify API](http://open-notify.org/Open-Notify-API/ISS-Location-Now/) to fetch real-time data about the ISS's location and display it on a [Leaflet map](https://leafletjs.com/) (which is using OpenStreetMaps). The ISS's position is updated every 3 seconds, providing an accurate representation of its movement.
 
 ## Features
 
@@ -29,7 +32,7 @@ The ISS Tracker is a web-based application that combines two exciting features:
 
 - HTML, CSS, JavaScript
 - Leaflet.js for map visualization
-- Nix for the development environment
+- Nix and direnv for the development environment
 
 ## Getting Started
 
@@ -37,11 +40,16 @@ Follow these steps to get the ISS Tracker up and running on your local machine:
 
 1. Clone this repository: `git clone https://github.com/your-username/ISS-Tracker.git`
 2. Navigate to the project directory: `cd ISS-Tracker`
-3. Open `index.html` in your web browser.
+3. If using nix then run ```nix develop``` and that will install all dapendencies.
 
-## Usage
 
-1. Upon opening the application, you will see a captivating astronomy picture from NASA's API.
-2. The map displays the real-time location of the ISS.
-3. Explore and enjoy tracking the ISS as it orbits the Earth.
+#### without nix
+install pip and run ```pip install flask requests request-cahce```.
 
+4. Run the application using Python:
+
+   ```bash
+   python app.py
+   ```
+   
+This will start the ISS Tracker application locally. You can access it by opening your web browser and navigating to http://localhost:PORT, where PORT is the port number specified in app.py.
