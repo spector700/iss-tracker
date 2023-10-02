@@ -2,9 +2,6 @@
 
 Welcome to the ISS Tracker project! This application allows you to track the International Space Station (ISS) in real-time on a map while also displaying the Astronomy Picture of the Day.
 
-[![ISS Tracker Demo](https://img.youtube.com/vi/JAgNTmCid-I/0.jpg)](https://www.youtube.com/watch?v=JAgNTmCid-I)
-
-
 ## About the Project
 
 The ISS Tracker is a web-based application that combines two exciting features:
